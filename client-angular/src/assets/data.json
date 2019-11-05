@@ -318,5 +318,15 @@
     "waterLevel": 1.0,
     "lightLevel": 1.0,
     "localDateTime": "2019-07-30T19:31:51.460715"
+  },
+  {
+    "id": 33,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 50,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T19:31:51.460715"
   }
 ]
