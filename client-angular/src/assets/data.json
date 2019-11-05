@@ -1,0 +1,322 @@
+[
+  {
+    "id": 1,
+    "airTemperature": 22,
+    "waterTemperature": 26,
+    "airHumidity": 37,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T11:31:51.460715"
+  },
+  {
+    "id": 2,
+    "airTemperature": 31,
+    "waterTemperature": 38,
+    "airHumidity": 28,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T12:31:51.460715"
+  },
+  {
+    "id": 3,
+    "airTemperature": 21,
+    "waterTemperature": 32,
+    "airHumidity": 34,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T13:31:51.460715"
+  },
+  {
+    "id": 4,
+    "airTemperature": 38,
+    "waterTemperature": 36,
+    "airHumidity": 22,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T14:31:51.460715"
+  },
+  {
+    "id": 5,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T15:31:51.460715"
+  },
+  {
+    "id": 6,
+    "airTemperature": 38,
+    "waterTemperature": 36,
+    "airHumidity": 22,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T16:31:51.460715"
+  },
+  {
+    "id": 7,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T17:31:51.460715"
+  },
+  {
+    "id": 8,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T18:31:51.460715"
+  },
+  {
+    "id": 9,
+    "airTemperature": 30,
+    "waterTemperature": 26,
+    "airHumidity": 37,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T19:31:51.460715"
+  },
+  {
+    "id": 10,
+    "airTemperature": 31,
+    "waterTemperature": 38,
+    "airHumidity": 28,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T20:31:51.460715"
+  },
+  {
+    "id": 11,
+    "airTemperature": 21,
+    "waterTemperature": 32,
+    "airHumidity": 34,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T21:31:51.460715"
+  },
+  {
+    "id": 12,
+    "airTemperature": 38,
+    "waterTemperature": 36,
+    "airHumidity": 22,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T22:31:51.460715"
+  },
+  {
+    "id": 13,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-29T23:31:51.460715"
+  },
+  {
+    "id": 14,
+    "airTemperature": 38,
+    "waterTemperature": 36,
+    "airHumidity": 22,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T1:31:51.460715"
+  },
+  {
+    "id": 15,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T2:31:51.460715"
+  },
+  {
+    "id": 16,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T3:31:51.460715"
+  },
+  {
+    "id": 17,
+    "airTemperature": 22,
+    "waterTemperature": 26,
+    "airHumidity": 37,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T4:31:51.460715"
+  },
+  {
+    "id": 18,
+    "airTemperature": 31,
+    "waterTemperature": 38,
+    "airHumidity": 28,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T5:31:51.460715"
+  },
+  {
+    "id": 19,
+    "airTemperature": 21,
+    "waterTemperature": 32,
+    "airHumidity": 34,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T6:31:51.460715"
+  },
+  {
+    "id": 20,
+    "airTemperature": 38,
+    "waterTemperature": 36,
+    "airHumidity": 22,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T7:31:51.460715"
+  },
+  {
+    "id": 21,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T8:31:51.460715"
+  },
+  {
+    "id": 22,
+    "airTemperature": 38,
+    "waterTemperature": 36,
+    "airHumidity": 22,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T9:31:51.460715"
+  },
+  {
+    "id": 23,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T10:31:51.460715"
+  },
+  {
+    "id": 24,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T11:31:51.460715"
+  },
+  {
+    "id": 25,
+    "airTemperature": 30,
+    "waterTemperature": 26,
+    "airHumidity": 37,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T12:31:51.460715"
+  },
+  {
+    "id": 26,
+    "airTemperature": 31,
+    "waterTemperature": 38,
+    "airHumidity": 28,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T13:31:51.460715"
+  },
+  {
+    "id": 27,
+    "airTemperature": 21,
+    "waterTemperature": 32,
+    "airHumidity": 34,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T14:31:51.460715"
+  },
+  {
+    "id": 28,
+    "airTemperature": 38,
+    "waterTemperature": 36,
+    "airHumidity": 22,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T15:31:51.460715"
+  },
+  {
+    "id": 29,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T16:31:51.460715"
+  },
+  {
+    "id": 30,
+    "airTemperature": 38,
+    "waterTemperature": 36,
+    "airHumidity": 88,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T17:31:51.460715"
+  },
+  {
+    "id": 31,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 25,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T18:31:51.460715"
+  },
+  {
+    "id": 32,
+    "airTemperature": 21,
+    "waterTemperature": 34,
+    "airHumidity": 50,
+    "airPollution": 1.0,
+    "waterLevel": 1.0,
+    "lightLevel": 1.0,
+    "localDateTime": "2019-07-30T19:31:51.460715"
+  }
+]

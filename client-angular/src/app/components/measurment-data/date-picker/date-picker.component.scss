@@ -1,0 +1,22 @@
+@import "../../../../../node_modules/ng-pick-datetime/assets/style/picker.min.css";
+
+button {
+  background-color: #e3165b;
+  color: white;
+}
+
+button:disabled {
+  background-color: #cccccc;
+}
+
+.invalidInfo {
+  color: #e3165b;
+}
+
+.dateTimeConfigBox, .chartBox {
+  padding: 5%;
+}
+
+#endDate, #startDate {
+  width: 10px !important;
+}

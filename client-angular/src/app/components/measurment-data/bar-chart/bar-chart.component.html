@@ -1,0 +1,62 @@
+<div class="columns is-centered">
+
+  <div class="column">
+    <p class="title is-5 has-text-centered">{{DC.AIR_TEMPERATURE_LABEL}} </p>
+    <div class="column is-narrow">
+      <div class="box">
+        <h1 class="title is-12 has-text-centered">
+          <p *ngIf="!(airTemperature === 'null')" class="success">{{airTemperature | number:'1.0-1'}} &deg;C</p>
+          <p *ngIf="(airTemperature === 'null')" class="error">{{lastKnowAirTemperature | number:'1.0-1'}} &deg;C</p>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <p class="title is-5 has-text-centered">{{DC.WATER_TEMPERATURE_LABEL}} </p>
+    <div class="column is-narrow">
+      <div class="box">
+        <h1 class="title is-12 has-text-centered">
+          <p *ngIf="!(waterTemperature === 'null')" class="success">{{waterTemperature | number:'1.0-1'}} &deg;C</p>
+          <p *ngIf="(waterTemperature === 'null')" class="error">{{lastKnowWaterTemperature | number:'1.0-1'}}
+            &deg;C</p>
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br><br>
+
+<div class="columns is-centered">
+
+  <div class="column">
+    <p class="title is-5 has-text-centered">{{DC.HUMIDITY_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="chartHumidityDataset"
+              [labels]="DC.HUMIDITY_LABEL"
+              [colors]="chartColors"
+              [options]="chartOptions">
+      </canvas>
+    </div>
+  </div>
+
+  <div class="column">
+    <p class="title is-5 has-text-centered">{{DC.WATER_LEVEL_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="chartWaterLevelDataset"
+              [labels]="DC.WATER_LEVEL_LABEL"
+              [colors]="chartColors"
+              [options]="chartOptions">
+      </canvas>
+    </div>
+  </div>
+
+</div>
+
+<br><br>

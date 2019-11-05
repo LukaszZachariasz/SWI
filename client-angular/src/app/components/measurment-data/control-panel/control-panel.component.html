@@ -1,0 +1,20 @@
+<p class="title has-text-centered">{{DC.DEVICE_CONTROL_TITLE}}</p><br>
+<div class="box is-centered">
+  <p class="title is-5 has-text-centered">{{DC.WATER_LEVEL_LABEL}}</p>
+  <p class="subtitle has-text-centered">{{sliderWaterLevelValue}}%</p>
+  <br><br>
+  <mat-slider class="mat-slider"
+              [(value)]="sliderWaterLevelValue"
+              min="{{CC.MIN_WATER_LEVEL}}"
+              max="{{CC.MAX_WATER_LEVEL}}"
+              step="{{CC.STEP_WATER_LEVEL}}">
+
+  </mat-slider>
+  <br><br>
+  <mat-progress-bar class="progress is-link"
+                    [value]="waterLevelLiveData" min="0" max="100">
+
+  </mat-progress-bar>
+  <br><br>
+  <button mdbBtn class="is-center" (click)="onWaterLevelSetClick()">{{DC.APPLY_BUTTON_LABEL}}</button>
+</div>
