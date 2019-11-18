@@ -11,8 +11,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Data {
 
     @Id
-    private String dataId;
-    private String temp;
+    private String id;
+    private String temperature;
+    private int humidity;
 
 
 }
