@@ -1,4 +1,4 @@
-package com.middleware.Utils;
+package com.middleware.utils;
 
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;

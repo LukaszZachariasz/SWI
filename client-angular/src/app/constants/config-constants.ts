@@ -4,7 +4,7 @@ export class ConfigConstants {
   public static readonly WEB_SOCKET_URL = '/ServerWebSocket/';
   public static readonly DEVICES_URL = '/devices';
   public static readonly LIVE_MEASUREMENTS_URL = '/measurements';
-  public static readonly HISTORICAL_MEASUREMENTS_URL = '../assets/data.json';
+  public static readonly HISTORICAL_MEASUREMENTS_URL = 'http://localhost:8080'; //'../assets/data.json';
   public static readonly WATER_LEVEL_SET_URL = '?waterLevel=';
 
   public static readonly LOCALE_DATE_FORMAT = 'en-GB';

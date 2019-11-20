@@ -1,7 +1,7 @@
 package com.middleware.controller;
 
 
-import com.middleware.Utils.CsvUtils;
+import com.middleware.utils.CsvUtils;
 import com.middleware.model.Data;
 import com.middleware.repository.DataRepository;
 import org.slf4j.Logger;
@@ -11,7 +11,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping(value = "/")
@@ -26,9 +29,14 @@ public class DataController {
         this.dataRepository = dataRepository;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<Data> getAllUsers() {
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    public List<Data> getAllData() throws ParseException {
         LOG.info("Getting all.");
+        String inputdate="9/1/10 11:34:35 AM";
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd/MM/yy hh:mm:ss aa", Locale.getDefault());
+
+        LOG.info(""+new SimpleDateFormat("dd/MM/yy HH:mm:ss",Locale.getDefault()).format(simpleDateFormat.parse(inputdate)));
+
         return dataRepository.findAll();
     }
 
