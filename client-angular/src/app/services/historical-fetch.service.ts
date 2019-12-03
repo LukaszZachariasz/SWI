@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {retry} from 'rxjs/operators';
-import {ConfigConstants} from '../constants/config-constants';
 
 @Injectable()
 export class HistoricalFetchService {
@@ -11,7 +9,13 @@ export class HistoricalFetchService {
   }
 
   fetchHistoricalDataFromService(pickedStartDate: string, pickedEndDate: string, interval: number): Observable<object> {
-    return this.http.get(ConfigConstants.HISTORICAL_MEASUREMENTS_URL).pipe(retry(3));
+
+    const headers = new HttpHeaders();
+    headers.append('content', 'application/json');
+    const params = new HttpParams().set('startDate', pickedStartDate).set('endDate', pickedEndDate);
+
+    console.log(pickedStartDate + '  ' + pickedEndDate);
+    return this.http.get('http://localhost:8080/getDateRange', {headers: headers, params: params});
   }
 }
 
