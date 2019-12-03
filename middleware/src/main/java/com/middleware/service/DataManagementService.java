@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -28,5 +32,20 @@ public class DataManagementService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<MeasurementDTO> getMeasurementsByDateRange(String startDate, String endDate) throws ParseException {
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+
+        Date d1 = format.parse(startDate);
+
+        Date d2 = format.parse(endDate);
+
+        System.out.println(d1 + "  " + d2);
+
+        List<MeasurementDTO> measurementRangeList = dataRepository.findByMeasurementDateBetween(d1, d2);
+
+        return measurementRangeList;
     }
 }

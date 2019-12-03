@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -38,6 +39,15 @@ public class DataManagementController {
     public ResponseEntity<?> uploadMultipart(@RequestParam("file") MultipartFile file) {
         dataManagementService.storeDataFromFile(file);
         return ResponseEntity.ok().body(null);
+    }
+
+    @RequestMapping(value = "/getDateRange", method = RequestMethod.GET)
+    public ResponseEntity getDateRange(@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate) throws ParseException {
+        List<MeasurementDTO> response = dataManagementService.getMeasurementsByDateRange(startDate, endDate);
+        LOG.info(response.toString());
+
+
+        return ResponseEntity.ok(response);
     }
 
 }
