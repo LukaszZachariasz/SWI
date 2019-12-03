@@ -1,10 +1,10 @@
 package com.middleware.repository;
 
-import com.middleware.model.Data;
+import com.middleware.model.MeasurementDTO;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DataRepository extends MongoRepository<Data, String> {
+public interface DataRepository extends MongoRepository<MeasurementDTO, String> {
 
 }

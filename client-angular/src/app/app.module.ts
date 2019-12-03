@@ -10,7 +10,7 @@ import {BarChartComponent} from './components/measurment-data/bar-chart/bar-char
 import {HttpClientModule} from '@angular/common/http';
 import {DatePickerModule} from '@syncfusion/ej2-angular-calendars';
 import {DatePickerComponent} from './components/measurment-data/date-picker/date-picker.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ControlPanelComponent} from './components/measurment-data/control-panel/control-panel.component';
 import {HistoricalFetchService} from './services/historical-fetch.service';
 import {WaterLevelControlService} from './services/water-level-control.service';
@@ -33,6 +33,7 @@ import {
   MatSliderModule,
   MatToolbarModule
 } from '@angular/material';
+import { UploadFileComponent } from './components/measurment-data/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {
     BarChartComponent,
     DatePickerComponent,
     ControlPanelComponent,
-    DeviceListComponent
+    DeviceListComponent,
+    UploadFileComponent
   ],
   imports: [
     DatePickerModule,
@@ -65,7 +67,8 @@ import {
     MatIconModule,
     MatListModule,
     MatMenuModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ReactiveFormsModule
   ],
   providers: [
     HistoricalFetchService,
