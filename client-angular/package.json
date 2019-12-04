@@ -33,6 +33,8 @@
     "chart.js": "^2.9.3",
     "hammerjs": "^2.0.8",
     "ng-pick-datetime": "^5.2.6",
+    "ng2-completer": "^3.0.3",
+    "ng2-smart-table": "^1.5.0",
     "ngx-datetime-range-picker": "^1.1.8",
     "primeicons": "^2.0.0",
     "primeng": "^8.1.1",

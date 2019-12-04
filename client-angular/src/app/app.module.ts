@@ -29,11 +29,15 @@ import {
   MatIconModule,
   MatListModule,
   MatMenuModule,
+  MatPaginatorModule,
   MatSidenavModule,
   MatSliderModule,
+  MatTableModule,
   MatToolbarModule
 } from '@angular/material';
-import { UploadFileComponent } from './components/measurment-data/upload-file/upload-file.component';
+import {UploadFileComponent} from './components/measurment-data/upload-file/upload-file.component';
+import {DataPaginateListComponent} from './components/measurment-data/data-paginate-list/data-paginate-list.component';
+import {Ng2SmartTableModule} from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
@@ -46,9 +50,11 @@ import { UploadFileComponent } from './components/measurment-data/upload-file/up
     DatePickerComponent,
     ControlPanelComponent,
     DeviceListComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    DataPaginateListComponent
   ],
   imports: [
+    Ng2SmartTableModule,
     DatePickerModule,
     BrowserModule,
     HttpClientModule,
@@ -68,7 +74,9 @@ import { UploadFileComponent } from './components/measurment-data/upload-file/up
     MatListModule,
     MatMenuModule,
     MatProgressBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     HistoricalFetchService,

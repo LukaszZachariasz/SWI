@@ -21,9 +21,9 @@ export class MeasurementDataComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.websocketService.measurementReceiveEvent.subscribe((measurement) => {
-      this.reloadLiveData(measurement);
-    });
+    // this.websocketService.measurementReceiveEvent.subscribe((measurement) => {
+    //   this.reloadLiveData(measurement);
+    // });
   }
 
   private reloadLiveData(measurement) {
