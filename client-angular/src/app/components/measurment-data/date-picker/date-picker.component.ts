@@ -39,7 +39,10 @@ export class DatePickerComponent implements OnInit {
     (this.pickedStartDate.toLocaleDateString(CC_EXT.LOCALE_DATE_FORMAT),
       this.pickedEndDate.toLocaleDateString(CC_EXT.LOCALE_DATE_FORMAT),
       this.selectedIntervalValue)
-      .subscribe(res => this.historicalDataInDatePicker = res);
+      .subscribe(res => {
+        this.historicalDataInDatePicker = res,
+          console.log(res);
+      });
     this.lineChartRef.chartRefresh();
   }
 
