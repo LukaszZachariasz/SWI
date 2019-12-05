@@ -10,8 +10,6 @@ import {HistoricalFetchService} from '../../../services/historical-fetch.service
 export class DataPaginateListComponent implements OnInit {
 
   constructor(private historicalDataService: HistoricalFetchService) {
-
-
   }
 
   data;
@@ -37,9 +35,9 @@ export class DataPaginateListComponent implements OnInit {
   // private Float batteryLife;
   // private String measurementTimestampLabel;
 
-  isPagerDisplay = false;
 
   settings = {
+    isPagerDisplay: false,
     columns: {
       stationName: {
         title: 'Station'
@@ -55,12 +53,21 @@ export class DataPaginateListComponent implements OnInit {
       },
       windSpeed: {
         title: 'Wind Speed'
+      },
+      barometricPressure: {
+        title: 'Pressure'
+      },
+      solarRadiation: {
+        title: 'Solar Radiation'
+      },
+      rainIntensity: {
+        title: 'Rain Intensity'
       }
     }
   };
 
   fetchPageData() {
-    this.historicalDataService.fetchPageDataFromService(0, 50).subscribe(res => this.data = res);
+    this.historicalDataService.fetchPageDataFromService(0, 5000).subscribe(res => this.data = res);
     console.log(this.data);
   }
 

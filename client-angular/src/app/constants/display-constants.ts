@@ -2,10 +2,10 @@ import {TimeInterval} from '../models/time-interval';
 
 export class DisplayConstants {
 
-  public static readonly WATER_LEVEL_LABEL = ['Water Level'];
+  public static readonly WATER_LEVEL_LABEL = ['Water'];
   public static readonly AIR_TEMPERATURE_LABEL = ['Air Temperature'];
   public static readonly WATER_TEMPERATURE_LABEL = ['Water Temperature'];
-  public static readonly HUMIDITY_LABEL = ['Humidity Level'];
+  public static readonly HUMIDITY_LABEL = ['Humidity'];
   public static readonly APPLY_BUTTON_LABEL = 'Apply';
   public static readonly HUMIDITY_WATER_DATA_LABEL = 'Humidity and Water';
   public static readonly TEMPERATURE_DATA_LABEL = 'Temperature';
@@ -20,6 +20,8 @@ export class DisplayConstants {
 
   public static readonly LINE_CHART_BACKGROUND_SET_1 = 'rgba(105, 0, 132, 0.4)';
   public static readonly LINE_CHART_BACKGROUND_SET_2 = 'rgba(0, 137, 132, 0.4)';
+  public static readonly LINE_CHART_BACKGROUND_SET_3 = 'rgba(105, 88, 10, 0.4)';
+  public static readonly LINE_CHART_BACKGROUND_SET_4 = 'rgba(55, 137, 80, 0.4)';
 
   public static readonly PERCENTAGE_CHART_LABEL = 'Level [%]';
   public static readonly TEMPERATURE_CHART_LABEL = 'Temperature [C°]';
@@ -38,6 +40,10 @@ export class DisplayConstants {
   public static readonly LIVE_SECTION_TITLE = 'Live Data';
   public static readonly HISTORICAL_SECTION_TITLE = 'Historical Data';
   public static readonly DEVICE_CONTROL_TITLE = 'Device Control';
+  public static readonly SOLAR_RADIATION_LABEL = 'Solar Radiation';
+  public static readonly DATA_CHART_LABEL = 'Data Chart';
+  public static readonly BAROMETRIC_PRESSURE = 'Barometric Pressure';
+  public static readonly RAIN_INTENSITY_LABEL = 'Rain intensity';
 
   public static readonly TITLE = 'Welcome to Weather Analysis System';
   public static readonly SUBTITLE = 'Thank you for using our product. We are glad you are with us.';

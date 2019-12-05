@@ -43,4 +43,8 @@ public class MeasurementDTO {
         }
     }
 
+    public String getMeasurementDate() {
+        return this.measurementDate.toString();
+    }
+
 }
