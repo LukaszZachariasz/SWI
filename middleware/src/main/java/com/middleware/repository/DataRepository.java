@@ -12,7 +12,7 @@ public interface DataRepository extends MongoRepository<MeasurementDTO, String> 
 
     List<MeasurementDTO> findAllByMeasurementDateGreaterThanAndMeasurementDateIsLessThan(Date measurementDate, Date measurementDate2);
 
-    List<MeasurementDTO> findByMeasurementDateBetween(Date d1, Date d2);
+    List<MeasurementDTO> findAllByMeasurementDateBetween(Date d1, Date d2);
 
     List<MeasurementDTO> findAllByMeasurementDateGreaterThan(Date d1);
 

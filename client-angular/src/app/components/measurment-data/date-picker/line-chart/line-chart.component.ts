@@ -19,14 +19,16 @@ export class LineChartComponent {
 
   public chartColors: Array<any> = [
     {backgroundColor: DC_EXT.LINE_CHART_BACKGROUND_SET_1},
-    {backgroundColor: DC_EXT.LINE_CHART_BACKGROUND_SET_2}
+    {backgroundColor: DC_EXT.LINE_CHART_BACKGROUND_SET_2},
+    {backgroundColor: DC_EXT.LINE_CHART_BACKGROUND_SET_3},
+    {backgroundColor: DC_EXT.LINE_CHART_BACKGROUND_SET_4}
   ];
 
   public temperatureChartOption: any = {
     scales: {
       yAxes: [{
         ticks: {
-          max: 100,
+          // max: 100,
           min: 0,
           stepSize: 10
         },
@@ -49,7 +51,7 @@ export class LineChartComponent {
     scales: {
       yAxes: [{
         ticks: {
-          max: 100,
+          // max: 100,
           min: 0,
           stepSize: 10
         },
@@ -72,36 +74,36 @@ export class LineChartComponent {
   }
 
   public temperatureDataSets: Array<any> = [
-    {data: [], label: DC_EXT.AIR_TEMPERATURE_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 10, pointHoverRadius: 20},
-    {data: [], label: DC_EXT.WATER_TEMPERATURE_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 10, pointHoverRadius: 20}
+    {data: [], label: DC_EXT.AIR_TEMPERATURE_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 0, pointHoverRadius: 0},
+    {data: [], label: DC_EXT.SOLAR_RADIATION_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 0, pointHoverRadius: 0},
+    {data: [], label: DC_EXT.HUMIDITY_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 0, pointHoverRadius: 0},
   ];
 
-  public percentageDataSets: Array<any> = [
-    {data: [], label: DC_EXT.WATER_LEVEL_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 10, pointHoverRadius: 20},
-    {data: [], label: DC_EXT.HUMIDITY_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 10, pointHoverRadius: 20}
+  public largeDataSet: Array<any> = [
+    {data: [], label: DC_EXT.RAIN_INTENSITY_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 0, pointHoverRadius: 0}
   ];
 
   public chartRefresh() {
-    const airTempData: Array<number> = [];
-    const waterTempData: Array<number> = [];
-    const airHumidityData: Array<any> = [];
-    const waterLevelData: Array<any> = [];
-    const localDateTimeData: Array<any> = [];
+    const airTemperature: Array<number> = [];
+    const solarRadiation: Array<number> = [];
+    const humidity: Array<any> = [];
+    const measurementDate: Array<any> = [];
+    const rainIntensity: Array<any> = [];
 
     setTimeout(() => {
       for (const key in this.historicalDataInLineChart) {
-        airTempData.push(this.historicalDataInLineChart[key].airTemperature);
-        airHumidityData.push(this.historicalDataInLineChart[key].airHumidity);
-        waterTempData.push(this.historicalDataInLineChart[key].waterTemperature);
-        waterLevelData.push(this.historicalDataInLineChart[key].waterLevel);
-        localDateTimeData.push(this.historicalDataInLineChart[key].localDateTime);
+        airTemperature.push(this.historicalDataInLineChart[key].airTemperature);
+        humidity.push(this.historicalDataInLineChart[key].humidity);
+        solarRadiation.push(this.historicalDataInLineChart[key].solarRadiation);
+        rainIntensity.push(this.historicalDataInLineChart[key].rainIntensity);
+        measurementDate.push(this.historicalDataInLineChart[key].measurementDate);
       }
 
-      this.chartLabels = localDateTimeData;
-      this.temperatureDataSets[0].data = airTempData;
-      this.temperatureDataSets[1].data = waterTempData;
-      this.percentageDataSets[0].data = airHumidityData;
-      this.percentageDataSets[1].data = waterLevelData;
+      this.chartLabels = measurementDate;
+      this.temperatureDataSets[0].data = airTemperature;
+      this.temperatureDataSets[1].data = solarRadiation;
+      this.temperatureDataSets[2].data = humidity;
+      this.largeDataSet[0].data = rainIntensity;
     }, 1000);
   }
 }

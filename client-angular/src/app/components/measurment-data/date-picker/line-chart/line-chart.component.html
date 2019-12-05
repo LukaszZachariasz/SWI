@@ -1,5 +1,5 @@
 <div class="box chartBox">
-  <h1 class="title has-text-centered">{{DC.TEMPERATURE_DATA_LABEL}}</h1>
+  <h1 class="title has-text-centered">{{DC.DATA_CHART_LABEL}}</h1>
   <div style="display: block">
     <canvas mdbChart
             [chartType]="CC.LINE_CHART_TYPE"
@@ -17,7 +17,7 @@
   <div style="display: block">
     <canvas mdbChart
             [chartType]="CC.LINE_CHART_TYPE"
-            [datasets]="percentageDataSets"
+            [datasets]="largeDataSet"
             [labels]="chartLabels"
             [colors]="chartColors"
             [options]="percentageChartOption"
