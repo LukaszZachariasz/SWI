@@ -13,8 +13,7 @@ export class UploadFileComponent implements OnInit {
 
   form: FormGroup;
   progress = 0;
-
-
+  dataAreLoaded = false;
   @ViewChild(MeasurementDataComponent, {static: false}) measurementDataComponent: MeasurementDataComponent;
 
   constructor(public fb: FormBuilder, public fileUploadService: FileUploadService) {
@@ -40,20 +39,17 @@ export class UploadFileComponent implements OnInit {
     ).subscribe((event: HttpEvent<any>) => {
       switch (event.type) {
         case HttpEventType.Sent:
-          console.log('Request has been made!');
           break;
         case HttpEventType.ResponseHeader:
-          console.log('Response header has been received!');
           break;
         case HttpEventType.UploadProgress:
           this.progress = Math.round(event.loaded / event.total * 100);
-          console.log(`Uploaded! ${this.progress}%`);
           break;
         case HttpEventType.Response:
-          console.log('User successfully created!', event.body);
+          this.dataAreLoaded = true;
           setTimeout(() => {
             this.progress = 0;
-          }, 1500);
+          }, 100);
 
       }
     });

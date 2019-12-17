@@ -1,15 +1,25 @@
-<div class="container">
-  <form [formGroup]="form" (ngSubmit)="submitUser()">
+<div *ngIf="dataAreLoaded" class="box">
+  <mat-list>
+    <mat-list-item>
+      <strong>Dataset loaded!</strong>
+    </mat-list-item>
+  </mat-list>
+</div>
 
-    <!-- Progress Bar -->
-    <mat-progress-bar *ngIf="progress > 0" mode="determinate" value="{{progress}}"></mat-progress-bar>
+<div *ngIf="!dataAreLoaded" class="box">
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="submitUser()">
 
-    <div class="form-group">
-      <input type="file" (change)="uploadFile($event)">
-    </div>
+      <!-- Progress Bar -->
+      <mat-progress-bar *ngIf="progress != 0" mode="indeterminate" value="{{progress}}"></mat-progress-bar>
 
-    <div class="form-group">
-      <button class="btn btn-danger btn-block btn-lg">Dodaj Dane</button>
-    </div>
-  </form>
+      <div class="form-group">
+        <input type="file" (change)="uploadFile($event)">
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-danger btn-block btn-lg">Upload Data</button>
+      </div>
+    </form>
+  </div>
 </div>

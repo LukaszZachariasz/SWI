@@ -39,6 +39,8 @@ export class DisplayConstants {
   public static readonly FARM_DETAILS_TITLE = 'Selected Farm Details';
   public static readonly LIVE_SECTION_TITLE = 'Live Data';
   public static readonly HISTORICAL_SECTION_TITLE = 'Historical Data';
+  public static readonly DATASET_MANAGEMENT = 'Dataset Management';
+  public static readonly DATA_PREPARING_TITLE = 'Data Preparing';
   public static readonly DEVICE_CONTROL_TITLE = 'Device Control';
   public static readonly SOLAR_RADIATION_LABEL = 'Solar Radiation';
   public static readonly DATA_CHART_LABEL = 'Data Chart';
