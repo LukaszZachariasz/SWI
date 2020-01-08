@@ -1,13 +1,10 @@
 <app-device-list (devicePickEvent)="pickedDeviceEvent($event)"></app-device-list>
 <br><br>
-
 <div *ngIf="isLoaded"><br><br>
   <p class="title is-5 has-text-centered">{{DC.LOADING_DATA}}</p>
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
   <br><br>
 </div>
-
-
 <div class="box dateTimeConfigBox" *ngIf="pickedDevice">
   <button (click)="setLastDayRange()" mdbBtn> {{DC.LAST_DAY_LABEL}} </button>
   <button (click)="setLastWeekRange()" mdbBtn> {{DC.LAST_WEEK_LABEL}} </button>
@@ -15,7 +12,6 @@
   <button (click)="setLast6Months()" mdbBtn> {{DC.LAST_6_MONTHS_LABEL}} </button>
   <br><br>
   <h1 class="is-2">{{DC.START_DATE_LABEL}}</h1>
-
   <p-calendar [maxDate]="maxDate"
               [readonlyInput]="true"
               [(ngModel)]="pickedStartDate"
@@ -32,7 +28,6 @@
               [disabled]="!pickedStartDate"
               (ngModelChange)="onDateChange()">
   </p-calendar>
-
   <br>
   <h1 *ngIf="!isSelectedDateValid()" class="invalidInfo"> {{DC.INVALID_DATE_INFO}} </h1>
   <br>
@@ -40,7 +35,6 @@
 <br>
 <app-line-chart [allValuesInDateRange]="allValuesInDateRangeSet"
                 *ngIf="allValuesInDateRangeSet && allValuesInDateRangeSet.length != 0">
-
 </app-line-chart>
 <br>
 <app-bar-chart
@@ -56,6 +50,5 @@
 
   [maxSolarRadiation]="maxValuesInDateRangeSet[0]['maxSolarRadiation']"
   [maxHumidity]="maxValuesInDateRangeSet[0]['maxHumidity']"
-  [maxAirTemperature]="maxValuesInDateRangeSet[0]['maxAirTemperature']"
->
+  [maxAirTemperature]="maxValuesInDateRangeSet[0]['maxAirTemperature']">
 </app-bar-chart>

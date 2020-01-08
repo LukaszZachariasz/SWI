@@ -53,7 +53,7 @@ export class BarChartComponent {
         scaleLabel: {display: true, labelString: DC_EXT.WIND_SPEED_LABEL}
       }],
       xAxes: [{
-        scaleLabel: {display: true, labels: ['asdasd', 'asdasdas', 'asdasd']}
+        scaleLabel: {display: true, labels: []}
       }]
     }
   };

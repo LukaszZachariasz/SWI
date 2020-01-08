@@ -36,7 +36,7 @@ export class DatePickerComponent implements OnInit {
   @ViewChild(BarChartComponent, {static: false}) barChartRef;
   @ViewChild(DeviceListComponent, {static: false}) deviceListRef;
   private pickedDevice: any;
-  isLoaded: boolean = true;
+  isLoaded = true;
 
   constructor(private fetchService: FetchService) {
     this.lineChartRef = new LineChartComponent();
@@ -94,10 +94,10 @@ export class DatePickerComponent implements OnInit {
     }, 2000);
 
     setTimeout(() => {
-      if (typeof (this.lineChartRef) != 'undefined') {
+      if (typeof (this.lineChartRef) !== 'undefined') {
         this.lineChartRef.chartRefresh();
       }
-      if (typeof (this.barChartRef) != 'undefined') {
+      if (typeof (this.barChartRef) !== 'undefined') {
         this.barChartRef.dataRefresh();
       }
 

@@ -32,6 +32,6 @@ export class DeviceListComponent implements OnInit {
   }
 
   isDeviceList() {
-    return this.availableDevices.length != 0;
+    return this.availableDevices.length !== 0;
   }
 }

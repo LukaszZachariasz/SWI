@@ -1,25 +1,19 @@
 <br>
 <div class="box is-narrow">
-
   <div *ngIf="isDeviceList(); then deviceSelect else devicesLoading"></div>
-
   <ng-template #devicesLoading><br><br>
     <p class="title is-5 has-text-centered">{{DC.LOADING_DATA}}</p>
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     <br><br>
   </ng-template>
-
   <ng-template #deviceSelect>
-
     <p class="title is-5 has-text-centered">{{DC.SELECT_DEVICE_LABEL}}</p>
     <div class="custom-container">
       <mat-form-field>
         <mat-select placeholder="Devices">
-
           <mat-toolbar class="header">
             <div>{{DC.ONLINE_DEVICE_LABEL}}</div>
           </mat-toolbar>
-
           <div *ngFor="let device of availableDevices">
             <mat-option [value]="device"
                         (click)="setCurrentPickedDevice(device)">
@@ -27,10 +21,8 @@
               <mat-divider></mat-divider>
             </mat-option>
           </div>
-
         </mat-select>
       </mat-form-field>
-
     </div>
   </ng-template>
 </div>

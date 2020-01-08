@@ -1,17 +1,12 @@
 <button (click)="fetchPageData()" class="btn btn-danger btn-block btn-lg">Load Data</button>
 <br>
 <button (click)="deleteAllData()" class="btn btn-danger btn-block btn-lg">Delete All Data</button>
-
-
-<br>
-<br>
+<br><br>
 <h1 class="is-2">{{DC.PAGE_SIZE_LABEL}}</h1>
-
 <mat-form-field>
   <mat-select [(value)]="selectedSizePageValue" (valueChange)="onIntervalChange()">
     <mat-option *ngFor="let i of DC.PAGE_SIZE_SET" [value]="i.capacity">{{i.displayValue}}</mat-option>
   </mat-select>
 </mat-form-field>
-<br>
-<br>
+<br><br>
 <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
