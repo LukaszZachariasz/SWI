@@ -1,6 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {MeasurementDataComponent} from '../measurment-data.component';
 import {FileUploadService} from '../../../services/file-upload.service';
 import {HttpEvent, HttpEventType} from '@angular/common/http';
 
@@ -14,28 +13,29 @@ export class UploadFileComponent implements OnInit {
   form: FormGroup;
   progress = 0;
   dataAreLoaded = false;
-  @ViewChild(MeasurementDataComponent, {static: false}) measurementDataComponent: MeasurementDataComponent;
+  filePicked = false;
 
   constructor(public fb: FormBuilder, public fileUploadService: FileUploadService) {
-
+    this.filePicked = false;
     this.form = this.fb.group({
       name: [''],
-      avatar: [null]
+      fileUploaded: [null]
     });
   }
 
   uploadFile(event) {
+    this.filePicked = true;
     const file = (event.target as HTMLInputElement).files[0];
     this.form.patchValue({
-      avatar: file
+      fileUploaded: file
     });
-    this.form.get('avatar').updateValueAndValidity();
+    this.form.get('fileUploaded').updateValueAndValidity();
   }
 
-  submitUser() {
-    this.fileUploadService.addUser(
-      this.form.value.name,
-      this.form.value.avatar
+  submitData() {
+    this.filePicked = false;
+    this.fileUploadService.addData(
+      this.form.value.fileUploaded
     ).subscribe((event: HttpEvent<any>) => {
       switch (event.type) {
         case HttpEventType.Sent:
@@ -46,7 +46,8 @@ export class UploadFileComponent implements OnInit {
           this.progress = Math.round(event.loaded / event.total * 100);
           break;
         case HttpEventType.Response:
-          this.dataAreLoaded = true;
+          this.setOnDataLoaded();
+          this.filePicked = true;
           setTimeout(() => {
             this.progress = 0;
           }, 100);
@@ -58,4 +59,10 @@ export class UploadFileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  private setOnDataLoaded() {
+    this.dataAreLoaded = true;
+    setTimeout(() => {
+      this.dataAreLoaded = false;
+    }, 3000);
+  }
 }

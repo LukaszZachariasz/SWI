@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {WebsocketService} from '../../services/websocket.service';
-import {DisplayConstants as DC_EXT} from '../../constants/display-constants';
+import {DisplayConstants as DC_EXT} from '../../../../constants/display-constants';
+import {FetchService} from '../../../../services/fetch.service';
 
 @Component({
   selector: 'app-device-list',
@@ -10,21 +10,28 @@ import {DisplayConstants as DC_EXT} from '../../constants/display-constants';
 export class DeviceListComponent implements OnInit {
 
   private DC = DC_EXT;
+  private availableDevices: any = [];
 
   @Output() devicePickEvent = new EventEmitter<string>();
 
-  availableDevices: any;
-
-  constructor(private websocketService: WebsocketService) {
+  constructor(private fetchService: FetchService) {
   }
 
   ngOnInit() {
-    this.websocketService.deviceReceiveEvent.subscribe((allDevices) => {
+    this.refreshDeviceList();
+  }
+
+  refreshDeviceList() {
+    this.fetchService.fetchDevices().subscribe((allDevices) => {
       this.availableDevices = allDevices;
     });
   }
 
   setCurrentPickedDevice(device) {
     this.devicePickEvent.emit(device);
+  }
+
+  isDeviceList() {
+    return this.availableDevices.length != 0;
   }
 }

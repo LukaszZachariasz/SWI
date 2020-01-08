@@ -1,10 +1,10 @@
 <br>
 <div class="box is-narrow">
 
-  <div *ngIf="availableDevices; then deviceSelect else devicesLoading"></div>
+  <div *ngIf="isDeviceList(); then deviceSelect else devicesLoading"></div>
 
   <ng-template #devicesLoading><br><br>
-    <p class="title is-5 has-text-centered">{{DC.LOADING_DEVICE_LABEL}}</p>
+    <p class="title is-5 has-text-centered">{{DC.LOADING_DATA}}</p>
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     <br><br>
   </ng-template>
@@ -21,9 +21,9 @@
           </mat-toolbar>
 
           <div *ngFor="let device of availableDevices">
-            <mat-option [value]="device.macAddress"
+            <mat-option [value]="device"
                         (click)="setCurrentPickedDevice(device)">
-              {{device.macAddress}}
+              {{device}}
               <mat-divider></mat-divider>
             </mat-option>
           </div>

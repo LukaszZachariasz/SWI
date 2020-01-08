@@ -9,11 +9,17 @@ import {DisplayConstants as DC_EXT} from '../../../../constants/display-constant
 })
 export class LineChartComponent {
 
+  constructor() {
+  }
+
   private CC = CC_EXT;
   private DC = DC_EXT;
 
-  @Input() historicalDataInLineChart;
+  @Input() allValuesInDateRange;
   isLineOnChartDrawing = true;
+
+  private pointRadius = 2;
+  private pointRadiusHover = 5;
 
   public chartLabels: Array<any> = [];
 
@@ -40,8 +46,8 @@ export class LineChartComponent {
       xAxes: [{
         ticks: {},
         scaleLabel: {
-          display: true,
-          labelString: DC_EXT.TIME_CHART_LABEL
+          display: false,
+          labelString: ''
         }
       }]
     },
@@ -70,17 +76,32 @@ export class LineChartComponent {
     },
   };
 
-  constructor() {
-  }
-
-  public temperatureDataSets: Array<any> = [
-    {data: [], label: DC_EXT.AIR_TEMPERATURE_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 0, pointHoverRadius: 0},
-    {data: [], label: DC_EXT.SOLAR_RADIATION_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 0, pointHoverRadius: 0},
-    {data: [], label: DC_EXT.HUMIDITY_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 0, pointHoverRadius: 0},
+  public chartDataSet: Array<any> = [
+    {
+      data: [],
+      label: DC_EXT.AIR_TEMPERATURE_LABEL,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    },
+    {
+      data: [],
+      label: DC_EXT.SOLAR_RADIATION_LABEL,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    },
+    {
+      data: [],
+      label: DC_EXT.HUMIDITY_DATA_LABEL,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    },
   ];
 
   public largeDataSet: Array<any> = [
-    {data: [], label: DC_EXT.RAIN_INTENSITY_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: 0, pointHoverRadius: 0}
+    {data: [], label: DC_EXT.RAIN_INTENSITY_LABEL, showLine: this.isLineOnChartDrawing, pointRadius: this.pointRadius, pointHoverRadius: 0}
   ];
 
   public chartRefresh() {
@@ -91,18 +112,18 @@ export class LineChartComponent {
     const rainIntensity: Array<any> = [];
 
     setTimeout(() => {
-      for (const key in this.historicalDataInLineChart) {
-        airTemperature.push(this.historicalDataInLineChart[key].airTemperature);
-        humidity.push(this.historicalDataInLineChart[key].humidity);
-        solarRadiation.push(this.historicalDataInLineChart[key].solarRadiation);
-        rainIntensity.push(this.historicalDataInLineChart[key].rainIntensity);
-        measurementDate.push(this.historicalDataInLineChart[key].measurementDate);
+      for (const key in this.allValuesInDateRange) {
+        airTemperature.push(this.allValuesInDateRange[key].airTemperature);
+        humidity.push(this.allValuesInDateRange[key].humidity);
+        solarRadiation.push(this.allValuesInDateRange[key].solarRadiation);
+        rainIntensity.push(this.allValuesInDateRange[key].rainIntensity);
+        measurementDate.push(this.allValuesInDateRange[key].measurementDate);
       }
 
       this.chartLabels = measurementDate;
-      this.temperatureDataSets[0].data = airTemperature;
-      this.temperatureDataSets[1].data = solarRadiation;
-      this.temperatureDataSets[2].data = humidity;
+      this.chartDataSet[0].data = airTemperature;
+      this.chartDataSet[1].data = solarRadiation;
+      this.chartDataSet[2].data = humidity;
       this.largeDataSet[0].data = rainIntensity;
     }, 1000);
   }

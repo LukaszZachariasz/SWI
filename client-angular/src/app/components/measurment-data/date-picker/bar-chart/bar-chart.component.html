@@ -1,0 +1,50 @@
+<br><br>
+<div class="columns is-centered">
+  <div class="column">
+    <p class="title is-5 has-text-centered">{{DC.HUMIDITY_DATA_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="HumiditySet"
+              [labels]="DC.BAR_CHART_LABELS"
+              [colors]="chartColors"
+              [options]="option1">
+      </canvas>
+    </div>
+    <p class="title is-5 has-text-centered">{{DC.AIR_TEMPERATURE_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="AirTemperatureSet"
+              [labels]="DC.BAR_CHART_LABELS"
+              [colors]="chartColors"
+              [options]="option1">
+      </canvas>
+    </div>
+  </div>
+  <div class="column">
+    <p class="title is-5 has-text-centered">{{DC.SOLAR_RADIATION_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="SolarRadiationSet"
+              [labels]="DC.BAR_CHART_LABELS"
+              [colors]="chartColors"
+              [options]="option1">
+      </canvas>
+    </div>
+    <p class="title is-5 has-text-centered">{{DC.AIR_TEMPERATURE_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="SolarRadiationSet"
+              [labels]="DC.BAR_CHART_LABELS"
+              [colors]="chartColors"
+              [options]="option1">
+      </canvas>
+    </div>
+  </div>
+
+</div>
+
+<br><br>

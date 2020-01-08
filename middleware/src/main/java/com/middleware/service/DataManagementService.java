@@ -37,11 +37,10 @@ public class DataManagementService {
     public List<MeasurementDTO> getMeasurementsByDateRange(String startDate, String endDate) throws ParseException {
 
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");
-
         Date d1 = format.parse(startDate);
-
         Date d2 = format.parse(endDate);
-        System.out.println(d1 + "  " +d2);
+
+        System.out.println("Date getMeasurementsByDateRange: " + d1 + "    " + d2);
 
         List<MeasurementDTO> measurementRangeList = dataRepository.findAllByMeasurementDateBetween(d1,d2);
 

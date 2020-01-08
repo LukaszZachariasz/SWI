@@ -12,11 +12,11 @@ export class FileUploadService {
   constructor(private http: HttpClient) {
   }
 
-  addUser(name: string, file: File): Observable<any> {
+  addData(file: File): Observable<any> {
     const formData: any = new FormData();
     formData.append('file', file);
 
-    return this.http.post('http://localhost:8080/upload', formData, {
+    return this.http.post('http://localhost:8080/uploadFile', formData, {
       reportProgress: true,
       observe: 'events'
     }).pipe(
