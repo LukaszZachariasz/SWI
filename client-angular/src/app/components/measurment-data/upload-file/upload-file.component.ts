@@ -63,6 +63,7 @@ export class UploadFileComponent implements OnInit {
     this.dataAreLoaded = true;
     setTimeout(() => {
       this.dataAreLoaded = false;
+      location.reload();
     }, 3000);
   }
 }

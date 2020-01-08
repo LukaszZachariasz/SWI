@@ -1,5 +1,6 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {DisplayConstants as DC_EXT} from '../../constants/display-constants';
+import {DatePickerComponent} from '@syncfusion/ej2-angular-calendars';
 
 @Component({
   selector: 'app-measurment-data',

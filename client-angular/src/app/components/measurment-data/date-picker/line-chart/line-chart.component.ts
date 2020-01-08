@@ -15,12 +15,11 @@ export class LineChartComponent {
   private CC = CC_EXT;
   private DC = DC_EXT;
 
-  @Input() allValuesInDateRange;
-  isLineOnChartDrawing = true;
-
+  @Input()
+  private allValuesInDateRange;
+  private isLineOnChartDrawing = true;
   private pointRadius = 2;
   private pointRadiusHover = 5;
-
   public chartLabels: Array<any> = [];
 
   public chartColors: Array<any> = [
@@ -33,8 +32,7 @@ export class LineChartComponent {
   public temperatureChartOption: any = {
     scales: {
       yAxes: [{
-        ticks: {
-        },
+        ticks: {},
         scaleLabel: {
           display: true,
           labelString: DC_EXT.TEMPERATURE_CHART_LABEL
@@ -50,11 +48,29 @@ export class LineChartComponent {
     },
   };
 
+  public solarRadiationChartOption: any = {
+    scales: {
+      yAxes: [{
+        ticks: {},
+        scaleLabel: {
+          display: true,
+          labelString: DC_EXT.SOLAR_RADIATION_LABEL
+        }
+      }],
+      xAxes: [{
+        ticks: {},
+        scaleLabel: {
+          display: true,
+          labelString: DC_EXT.TIME_CHART_LABEL
+        }
+      }]
+    },
+  };
+
   public percentageChartOption: any = {
     scales: {
       yAxes: [{
-        ticks: {
-        },
+        ticks: {},
         scaleLabel: {
           display: true,
           labelString: DC_EXT.PERCENTAGE_CHART_LABEL
@@ -70,7 +86,26 @@ export class LineChartComponent {
     },
   };
 
-  public chartDataSet: Array<any> = [
+  public pressureChartOption: any = {
+    scales: {
+      yAxes: [{
+        ticks: {},
+        scaleLabel: {
+          display: true,
+          labelString: DC_EXT.PRESSURE_CHART_LABEL
+        }
+      }],
+      xAxes: [{
+        ticks: {},
+        scaleLabel: {
+          display: true,
+          labelString: DC_EXT.TIME_CHART_LABEL
+        }
+      }]
+    },
+  };
+
+  public temperatureDataSet: Array<any> = [
     {
       data: [],
       label: DC_EXT.AIR_TEMPERATURE_LABEL,
@@ -80,18 +115,41 @@ export class LineChartComponent {
     },
     {
       data: [],
-      label: DC_EXT.SOLAR_RADIATION_LABEL,
+      label: DC_EXT.BULB_TEMPERATURE_LABEL,
       showLine: this.isLineOnChartDrawing,
       pointRadius: this.pointRadius,
       pointHoverRadius: this.pointRadiusHover
-    },
+    }
+  ];
+
+  public humidityDataSet: Array<any> = [
     {
       data: [],
       label: DC_EXT.HUMIDITY_DATA_LABEL,
       showLine: this.isLineOnChartDrawing,
       pointRadius: this.pointRadius,
       pointHoverRadius: this.pointRadiusHover
-    },
+    }
+  ];
+
+  public pressureDataSet: Array<any> = [
+    {
+      data: [],
+      label: DC_EXT.BAROMETRIC_PRESSURE,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    }
+  ];
+
+  public solarRadiationDataSet: Array<any> = [
+    {
+      data: [],
+      label: DC_EXT.SOLAR_RADIATION_LABEL,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    }
   ];
 
   public largeDataSet: Array<any> = [
@@ -100,27 +158,42 @@ export class LineChartComponent {
 
   public chartRefresh() {
     const airTemperature: Array<number> = [];
+    const wetBulbTemperature: Array<number> = [];
     const solarRadiation: Array<number> = [];
     const humidity: Array<any> = [];
     const measurementDate: Array<any> = [];
     const rainIntensity: Array<any> = [];
+    const barometricPressure: Array<any> = [];
+    const windSpeed: Array<any> = [];
 
+    let count = 1;
     setTimeout(() => {
       for (const key in this.allValuesInDateRange) {
         airTemperature.push(this.allValuesInDateRange[key].airTemperature);
+        wetBulbTemperature.push(this.allValuesInDateRange[key].wetBulbTemperature);
         humidity.push(this.allValuesInDateRange[key].humidity);
         solarRadiation.push(this.allValuesInDateRange[key].solarRadiation);
         rainIntensity.push(this.allValuesInDateRange[key].rainIntensity);
-        measurementDate.push(this.allValuesInDateRange[key].measurementDate);
+        barometricPressure.push(this.allValuesInDateRange[key].barometricPressure);
+        windSpeed.push(this.allValuesInDateRange[key].windSpeed);
+        measurementDate.push(count++);
       }
 
       this.chartLabels = measurementDate;
-      this.chartDataSet[0].data = airTemperature;
-      this.chartDataSet[1].data = solarRadiation;
-      this.chartDataSet[2].data = humidity;
+      this.temperatureDataSet[0].data = airTemperature;
+      this.temperatureDataSet[1].data = wetBulbTemperature;
+      this.humidityDataSet[0].data = humidity;
+      this.pressureDataSet[0].data = barometricPressure;
+      this.solarRadiationDataSet[0].data = solarRadiation;
+
+      //
+      this.largeDataSet[0].data = rainIntensity;
+      this.largeDataSet[0].data = rainIntensity;
+      this.largeDataSet[0].data = rainIntensity;
       this.largeDataSet[0].data = rainIntensity;
     }, 1000);
   }
+
 }
 
 

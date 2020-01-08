@@ -25,10 +25,25 @@ export class BarChartComponent {
   @Input() minSolarRadiation: any;
   @Input() avgSolarRadiation: any;
 
+  @Input() avgRainIntensity: any;
+  @Input() avgWindSpeed: any;
+  @Input() avgBarometricPressure: any;
+
+  @Input() minRainIntensity: any;
+  @Input() minWindSpeed: any;
+  @Input() minBarometricPressure: any;
+
+  @Input() maxRainIntensity: any;
+  @Input() maxWindSpeed: any;
+  @Input() maxBarometricPressure: any;
+
 
   public AirTemperatureSet = [0, 0, 0];
   public HumiditySet = [0, 0, 0];
   public SolarRadiationSet = [0, 0, 0];
+  public RainIntensitySet = [0, 0, 0];
+  public WindSpeed = [0, 0, 0];
+  public BarometricPressureSet = [0, 0, 0];
 
 
   public chartColors = [{
@@ -37,8 +52,7 @@ export class BarChartComponent {
     borderWidth: DC_EXT.BAR_CHART_BORDER_SIZE,
   }];
 
-
-  public option2: any = {
+  public percentageOptions: any = {
     scales: {
       yAxes: [{
         ticks: {min: 0, stepSize: 10, max: 100},
@@ -47,10 +61,54 @@ export class BarChartComponent {
     }
   };
 
-  public option1: any = {
+  public windSpeedOptions: any = {
     scales: {
       yAxes: [{
         scaleLabel: {display: true, labelString: DC_EXT.WIND_SPEED_LABEL}
+      }],
+      xAxes: [{
+        scaleLabel: {display: true, labels: []}
+      }]
+    }
+  };
+
+  public pressureOptions: any = {
+    scales: {
+      yAxes: [{
+        scaleLabel: {display: true, labelString: DC_EXT.PRESSURE_CHART_LABEL}
+      }],
+      xAxes: [{
+        scaleLabel: {display: true, labels: []}
+      }]
+    }
+  };
+
+  public solarRadiationOptions: any = {
+    scales: {
+      yAxes: [{
+        scaleLabel: {display: true, labelString: DC_EXT.SOLAR_RADIATION_LABEL}
+      }],
+      xAxes: [{
+        scaleLabel: {display: true, labels: []}
+      }]
+    }
+  };
+
+  public temperatureOptions: any = {
+    scales: {
+      yAxes: [{
+        scaleLabel: {display: true, labelString: DC_EXT.TEMPERATURE_CHART_LABEL}
+      }],
+      xAxes: [{
+        scaleLabel: {display: true, labels: []}
+      }]
+    }
+  };
+
+  public rainOptions: any = {
+    scales: {
+      yAxes: [{
+        scaleLabel: {display: true, labelString: DC_EXT.RAIN_INTENSITY_LABEL}
       }],
       xAxes: [{
         scaleLabel: {display: true, labels: []}
@@ -77,5 +135,24 @@ export class BarChartComponent {
       this.avgSolarRadiation ? this.avgSolarRadiation : 0
     ];
 
+    this.RainIntensitySet = [
+      this.minRainIntensity ? this.minRainIntensity : 0,
+      this.maxRainIntensity ? this.maxRainIntensity : 0,
+      this.avgRainIntensity ? this.avgRainIntensity : 0
+    ];
+
+    this.WindSpeed = [
+      this.minWindSpeed ? this.minWindSpeed : 0,
+      this.maxWindSpeed ? this.maxWindSpeed : 0,
+      this.avgWindSpeed ? this.avgWindSpeed : 0
+    ];
+
+    this.BarometricPressureSet = [
+      this.minBarometricPressure ? this.minBarometricPressure : 0,
+      this.maxBarometricPressure ? this.maxBarometricPressure : 0,
+      this.avgBarometricPressure ? this.avgBarometricPressure : 0
+    ];
+
   }
+
 }

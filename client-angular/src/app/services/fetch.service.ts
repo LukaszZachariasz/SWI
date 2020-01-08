@@ -24,7 +24,7 @@ export class FetchService {
     return this.http.get('http://localhost:8080/getAllValuesInDateRange', {headers, params});
   }
 
-  fetchAllPagedValuesInDateRange(pageNumber: number, pageSize: number): Observable<object> {
+  fetchAllPagedValues(pageNumber: number, pageSize: number): Observable<object> {
     const headers = new HttpHeaders();
     headers.append('content', 'application/json');
     const params = new HttpParams().set('pageNumber', pageNumber.toString()).set('pageSize', pageSize.toString());

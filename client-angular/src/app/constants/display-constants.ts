@@ -2,10 +2,12 @@ import {PageSizeValues} from '../models/page-size-values';
 
 export class DisplayConstants {
 
-  public static readonly AIR_TEMPERATURE_LABEL = ['Air Temperature'];
+  public static readonly BAROMETRIC_PRESSURE = ['Barometric Pressure [hPa]'];
+  public static readonly AIR_TEMPERATURE_LABEL = ['Air Temperature [C]'];
+  public static readonly BULB_TEMPERATURE_LABEL = ['Wet Bulb Temperature [C]'];
   public static readonly BAR_CHART_LABELS = ['Min', 'Max', 'Avg'];
-  public static readonly HUMIDITY_DATA_LABEL = 'Humidity';
-  public static readonly LOADING_DATA = 'Waiting for Data';
+  public static readonly HUMIDITY_DATA_LABEL = 'Humidity [%]';
+  public static readonly LOADING_DATA = 'Waiting for load Data';
   public static readonly SELECT_DEVICE_LABEL = 'Please select device';
   public static readonly ONLINE_DEVICE_LABEL = 'Available Measurement Devices';
 
@@ -19,7 +21,8 @@ export class DisplayConstants {
   public static readonly LINE_CHART_BACKGROUND_SET_4 = 'rgba(55, 137, 80, 0.4)';
 
   public static readonly PERCENTAGE_CHART_LABEL = 'Level [%]';
-  public static readonly WIND_SPEED_LABEL = 'Speed [km/h]';
+  public static readonly PRESSURE_CHART_LABEL = 'Barometric Pressure [hPa]';
+  public static readonly WIND_SPEED_LABEL = ' Wind Speed [km/h]';
   public static readonly TEMPERATURE_CHART_LABEL = 'Temperature [C°]';
   public static readonly TIME_CHART_LABEL = 'Time';
 
@@ -35,9 +38,8 @@ export class DisplayConstants {
   public static readonly DATA_ANALYSIS_TITLE = 'Data Analysis';
   public static readonly DATASET_MANAGEMENT = 'Dataset Management';
   public static readonly DATA_PREPARING_TITLE = 'Data Preparing';
-  public static readonly SOLAR_RADIATION_LABEL = 'Solar Radiation';
-  public static readonly DATA_CHART_LABEL = 'Data Chart';
-  public static readonly RAIN_INTENSITY_LABEL = 'Rain intensity';
+  public static readonly SOLAR_RADIATION_LABEL = 'Solar Radiation [watts/m2]';
+  public static readonly RAIN_INTENSITY_LABEL = 'Rain intensity [mm/h]';
 
   public static readonly TITLE = 'Welcome to Weather Analysis System';
   public static readonly SUBTITLE = 'Thank you for using our product. We are glad you are with us.';

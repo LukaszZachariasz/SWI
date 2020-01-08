@@ -86,23 +86,22 @@ export class DatePickerComponent implements OnInit {
         console.log(res);
       });
 
-
     this.isLoaded = true;
 
     setTimeout(() => {
-      this.isLoaded = false;
-    }, 2000);
+      if (this.allValuesInDateRangeSet.length > 0) {
+        this.isLoaded = false;
+        setTimeout(() => {
+          if (typeof (this.lineChartRef) !== 'undefined') {
+            this.lineChartRef.chartRefresh();
+          }
+          if (typeof (this.barChartRef) !== 'undefined') {
+            this.barChartRef.dataRefresh();
+          }
 
-    setTimeout(() => {
-      if (typeof (this.lineChartRef) !== 'undefined') {
-        this.lineChartRef.chartRefresh();
+        }, 1000);
       }
-      if (typeof (this.barChartRef) !== 'undefined') {
-        this.barChartRef.dataRefresh();
-      }
-
-    }, 2000);
-
+    }, 1000);
   }
 
   onDateChange() {

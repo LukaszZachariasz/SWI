@@ -20,6 +20,8 @@ export class DataPaginateListComponent implements OnInit {
   private data;
   private selectedSizePageValue: number;
 
+  private isLoaded = true;
+
   @ViewChild(LineChartComponent, {static: true}) lineChartRef;
   @ViewChild(BarChartComponent, {static: true}) barChartRef;
   @ViewChild(DeviceListComponent, {static: true}) deviceListRef;
@@ -35,36 +37,38 @@ export class DataPaginateListComponent implements OnInit {
     },
     columns: {
       stationName: {
-        title: 'Station'
+        title: 'Station Name'
       },
       measurementDate: {
-        title: 'Date'
+        title: 'Date and Time'
       },
       airTemperature: {
-        title: 'Air Temperature'
+        title: 'Air Temp. [C]'
       },
       humidity: {
-        title: 'Humidity'
+        title: 'Humidity [%]'
       },
       windSpeed: {
-        title: 'Wind Speed'
+        title: 'Wind [m/s]'
       },
       barometricPressure: {
-        title: 'Pressure'
+        title: 'Pressure [hPa]'
       },
       solarRadiation: {
-        title: 'Solar Radiation'
+        title: 'Solar [wats/m2]'
       },
       rainIntensity: {
-        title: 'Rain Intensity'
+        title: 'Rain [mm/h]'
       }
     }
   };
 
   fetchPageData() {
-    this.fetchService.fetchAllPagedValuesInDateRange(0, this.selectedSizePageValue).subscribe(res => {
+    this.isLoaded = true;
+    this.fetchService.fetchAllPagedValues(0, this.selectedSizePageValue).subscribe(res => {
       this.data = res;
       console.log(this.data);
+      this.isLoaded = false;
     });
   }
 

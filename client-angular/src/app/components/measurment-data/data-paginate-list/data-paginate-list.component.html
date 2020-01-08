@@ -9,4 +9,11 @@
   </mat-select>
 </mat-form-field>
 <br><br>
-<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+
+<div *ngIf="isLoaded"><br><br>
+  <p class="title is-5 has-text-centered">{{DC.LOADING_DATA}}</p>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <br><br>
+</div>
+
+<ng2-smart-table *ngIf="!isLoaded" [settings]="settings" [source]="data"></ng2-smart-table>
