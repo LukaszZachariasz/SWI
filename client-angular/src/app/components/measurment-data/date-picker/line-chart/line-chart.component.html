@@ -65,3 +65,18 @@
 
   </div>
 </div>
+
+
+<div class="box chartBox">
+  <h1 class="title has-text-centered">{{DC.SOLAR_RADIATION_LABEL}}</h1>
+  <div style="display: block">
+    <canvas mdbChart
+            [chartType]="CC.LINE_CHART_TYPE"
+            [datasets]="normalizedDataSet"
+            [labels]="chartLabels"
+            [colors]="chartColors"
+            [options]="percentageChartOption"
+            [legend]="true">
+    </canvas>
+  </div>
+</div>

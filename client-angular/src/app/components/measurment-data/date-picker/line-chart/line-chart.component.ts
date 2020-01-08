@@ -142,10 +142,58 @@ export class LineChartComponent {
     }
   ];
 
+  public windDataSet: Array<any> = [
+    {
+      data: [],
+      label: DC_EXT.WIND_SPEED_LABEL,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    }
+  ];
+
   public solarRadiationDataSet: Array<any> = [
     {
       data: [],
       label: DC_EXT.SOLAR_RADIATION_LABEL,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    }
+  ];
+
+  public normalizedDataSet: Array<any> = [
+    {
+      data: [],
+      label: DC_EXT.WIND_SPEED_LABEL,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    },
+    {
+      data: [],
+      label: DC_EXT.SOLAR_RADIATION_LABEL,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    },
+    {
+      data: [],
+      label: DC_EXT.BAROMETRIC_PRESSURE,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    },
+    {
+      data: [],
+      label: DC_EXT.HUMIDITY_DATA_LABEL,
+      showLine: this.isLineOnChartDrawing,
+      pointRadius: this.pointRadius,
+      pointHoverRadius: this.pointRadiusHover
+    },
+    {
+      data: [],
+      label: DC_EXT.AIR_TEMPERATURE_LABEL,
       showLine: this.isLineOnChartDrawing,
       pointRadius: this.pointRadius,
       pointHoverRadius: this.pointRadiusHover
@@ -166,7 +214,6 @@ export class LineChartComponent {
     const barometricPressure: Array<any> = [];
     const windSpeed: Array<any> = [];
 
-    let count = 1;
     setTimeout(() => {
       for (const key in this.allValuesInDateRange) {
         airTemperature.push(this.allValuesInDateRange[key].airTemperature);
@@ -176,7 +223,7 @@ export class LineChartComponent {
         rainIntensity.push(this.allValuesInDateRange[key].rainIntensity);
         barometricPressure.push(this.allValuesInDateRange[key].barometricPressure);
         windSpeed.push(this.allValuesInDateRange[key].windSpeed);
-        measurementDate.push(count++);
+        measurementDate.push(this.allValuesInDateRange[key].measurementDate);
       }
 
       this.chartLabels = measurementDate;
@@ -185,13 +232,44 @@ export class LineChartComponent {
       this.humidityDataSet[0].data = humidity;
       this.pressureDataSet[0].data = barometricPressure;
       this.solarRadiationDataSet[0].data = solarRadiation;
+      this.windDataSet[0].data = windSpeed;
 
-      //
-      this.largeDataSet[0].data = rainIntensity;
-      this.largeDataSet[0].data = rainIntensity;
-      this.largeDataSet[0].data = rainIntensity;
-      this.largeDataSet[0].data = rainIntensity;
+      this.normalizedDataSet[0].data = this.normalizeDataSetValues(this.windDataSet[0].data);
+      this.normalizedDataSet[1].data = this.normalizeDataSetValues(this.solarRadiationDataSet[0].data);
+      this.normalizedDataSet[2].data = this.normalizeDataSetValues(this.pressureDataSet[0].data);
+      this.normalizedDataSet[3].data = this.normalizeDataSetValues(this.humidityDataSet[0].data);
+      this.normalizedDataSet[4].data = this.normalizeDataSetValues(this.temperatureDataSet[0].data);
+
     }, 1000);
+  }
+
+
+  normalizeDataSetValues(array: Array<number>) {
+
+    let maxVal = 0;
+    let minVal = 0;
+
+    array.forEach(element => {
+      if (maxVal < element) {
+        maxVal = element;
+      }
+
+      if (minVal > element) {
+        minVal = element;
+      }
+    });
+
+    const normalizedArray: Array<number> = [];
+
+    array.forEach(element => {
+      normalizedArray.push(this.normalize(element, maxVal, minVal));
+    });
+
+    return normalizedArray;
+  }
+
+  normalize(val, max, min) {
+    return (val - min) / (max - min);
   }
 
 }
