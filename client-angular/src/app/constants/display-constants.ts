@@ -39,6 +39,7 @@ export class DisplayConstants {
   public static readonly DATASET_MANAGEMENT = 'Dataset Management';
   public static readonly DATA_PREPARING_TITLE = 'Data Preparing';
   public static readonly SOLAR_RADIATION_LABEL = 'Solar Radiation [watts/m2]';
+  public static readonly NORMALIZED_COMPARISION = 'Normalized Data Comparision';
   public static readonly RAIN_INTENSITY_LABEL = 'Rain intensity [mm/h]';
 
   public static readonly TITLE = 'Welcome to Weather Analysis System';
