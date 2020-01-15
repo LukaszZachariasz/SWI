@@ -1,61 +1,29 @@
 <div style='min-height:800px'>
-<!--  <br><br>-->
-<!--  <div *ngIf="measurementDevice" class="box">-->
-<!--    <p class="title is-5 has-text-centered">{{DC.FARM_DETAILS_TITLE}}</p>-->
-<!--    <mat-list>-->
-<!--      <mat-list-item>-->
-<!--        <strong>Name: &nbsp;&nbsp; </strong> {{measurementDevice.name}}-->
-<!--      </mat-list-item>-->
-<!--      <mat-list-item>-->
-<!--        <strong>MAC Address: &nbsp;&nbsp; </strong> {{measurementDevice.macAddress}}-->
-<!--      </mat-list-item>-->
-<!--      <mat-list-item>-->
-<!--        <strong>Description: &nbsp;&nbsp; </strong> {{measurementDevice.description}}-->
-<!--      </mat-list-item>-->
-<!--    </mat-list>-->
-<!--  </div>-->
-
 
   <mat-tab-group mat-align-tabs="center">
-<!--    <div *ngIf="measurementDevice">-->
-<!--      <mat-tab label="{{DC.LIVE_SECTION_TITLE}}"><br>-->
-<!--        <p class="title has-text-centered">{{DC.LIVE_SECTION_TITLE}}</p>-->
-<!--        <div class="container">-->
 
-<!--          <div *ngIf="liveData; then liveDataDisplay else liveDataLoading"></div>-->
-
-<!--          <ng-template #liveDataLoading>-->
-<!--            <p class="title is-5 has-text-centered">{{DC.LIVE_DATA_LOADING}}</p>-->
-<!--            <mat-progress-bar mode="indeterminate"></mat-progress-bar>-->
-<!--            <br><br>-->
-<!--          </ng-template>-->
-
-<!--          <ng-template #liveDataDisplay>-->
-<!--            <app-bar-chart-->
-<!--              [airTemperature]="liveData?.airTemperature"-->
-<!--              [waterTemperature]="liveData?.waterTemperature"-->
-<!--              [humidity]="liveData?.airHumidity"-->
-<!--              [waterLevel]="liveData?.waterLevel">-->
-<!--            </app-bar-chart>-->
-<!--          </ng-template>-->
-<!--        </div>-->
-<!--      </mat-tab>-->
-
-<!--      <mat-tab label="{{DC.DEVICE_CONTROL_TITLE}}"><br><br>-->
-<!--        <div class="container">-->
-<!--          <app-control-panel [waterLevelLiveData]="liveData?.waterLevel"></app-control-panel>-->
-<!--          <br><br>-->
-<!--        </div>-->
-<!--      </mat-tab>-->
-<!--    </div>-->
-
-<!--    <mat-tab *ngIf="measurementDevice" label="{{DC.HISTORICAL_SECTION_TITLE}}">-->
-      <mat-tab label="{{DC.HISTORICAL_SECTION_TITLE}}">
+    <mat-tab label="{{DC.DATA_PREPARING_TITLE}}">
       <br>
       <div class="container">
-        <p class="title has-text-centered">{{DC.HISTORICAL_SECTION_TITLE}}</p>
+        <p class="title has-text-centered">{{DC.DATA_PREPARING_TITLE}}</p>
         <app-upload-file></app-upload-file>
+        <br><br>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="{{DC.DATASET_MANAGEMENT}}">
+      <br>
+      <div class="container">
+        <p class="title has-text-centered">{{DC.DATASET_MANAGEMENT}}</p>
         <app-data-paginate-list></app-data-paginate-list>
+        <br><br>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="{{DC.DATA_ANALYSIS_TITLE}}">
+      <br>
+      <div class="container">
+        <p class="title has-text-centered">{{DC.DATA_ANALYSIS_TITLE}}</p>
         <app-date-picker></app-date-picker>
         <br><br>
       </div>

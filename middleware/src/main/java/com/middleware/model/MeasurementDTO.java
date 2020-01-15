@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.Locale;
 
 @Data
-
 public class MeasurementDTO {
 
     @Id

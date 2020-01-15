@@ -16,5 +16,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 .allowedMethods("PUT", "DELETE", "POST", "GET")
                 .allowCredentials(false).maxAge(3600);
     }
+
 }
 

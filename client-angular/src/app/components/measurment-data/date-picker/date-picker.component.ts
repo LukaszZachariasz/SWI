@@ -1,8 +1,10 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {LineChartComponent} from './line-chart/line-chart.component';
-import {HistoricalFetchService} from '../../../services/historical-fetch.service';
+import {FetchService} from '../../../services/fetch.service';
 import {DisplayConstants as DC_EXT} from '../../../constants/display-constants';
 import {ConfigConstants as CC_EXT} from '../../../constants/config-constants';
+import {BarChartComponent} from './bar-chart/bar-chart.component';
+import {DeviceListComponent} from './device-list/device-list.component';
 
 @Component({
   selector: 'app-date-picker',
@@ -13,37 +15,93 @@ import {ConfigConstants as CC_EXT} from '../../../constants/config-constants';
 export class DatePickerComponent implements OnInit {
 
   private DC = DC_EXT;
-  public historicalDataJson;
 
-  maxDate = new Date();
-  historicalDataInDatePicker;
-  selectedIntervalValue: number;
-  isEndDatePickerDisabled = true;
+  public allValuesDataJson;
+  public avgValuesDataJson;
+  public minValuesDataJson;
+  public maxValuesDataJson;
+
+  public allValuesInDateRangeSet = [];
+  public avgValuesInDateRangeSet = [];
+  public minValuesInDateRangeSet = [];
+  public maxValuesInDateRangeSet = [];
+
+  private maxDate = new Date();
+  private isEndDatePickerDisabled = true;
 
   @Input() pickedStartDate;
   @Input() pickedEndDate;
-  @ViewChild(LineChartComponent, {static: false}) lineChartRef;
 
-  constructor(private liveFetchService: HistoricalFetchService) {
-    this.selectedIntervalValue = DC_EXT.TIME_INTERVAL_SET[2].minutes;
+  @ViewChild(LineChartComponent, {static: false}) lineChartRef;
+  @ViewChild(BarChartComponent, {static: false}) barChartRef;
+  @ViewChild(DeviceListComponent, {static: false}) deviceListRef;
+  private pickedDevice: any;
+  isLoaded = true;
+
+  constructor(private fetchService: FetchService) {
+    this.lineChartRef = new LineChartComponent();
+    this.barChartRef = new BarChartComponent();
+    this.deviceListRef = new DeviceListComponent(fetchService);
   }
 
   ngOnInit(): void {
     setTimeout(() => {
       this.setLastDayRange();
-    }, 1000);
+    }, 3000);
   }
 
   fetchData() {
-    this.historicalDataJson = this.liveFetchService.fetchHistoricalDataFromService
+    this.allValuesDataJson = this.fetchService.fetchAllValuesInDateRange
     (this.pickedStartDate.toLocaleDateString(CC_EXT.LOCALE_DATE_FORMAT),
       this.pickedEndDate.toLocaleDateString(CC_EXT.LOCALE_DATE_FORMAT),
-      this.selectedIntervalValue)
+      this.pickedDevice)
       .subscribe(res => {
-        this.historicalDataInDatePicker = res,
-          console.log(res);
+        this.allValuesInDateRangeSet = res as [];
+        console.log(res);
       });
-    this.lineChartRef.chartRefresh();
+
+    this.avgValuesDataJson = this.fetchService.fetchAvgValuesInDateRange
+    (this.pickedStartDate.toLocaleDateString(CC_EXT.LOCALE_DATE_FORMAT),
+      this.pickedEndDate.toLocaleDateString(CC_EXT.LOCALE_DATE_FORMAT),
+      this.pickedDevice)
+      .subscribe(res => {
+        this.avgValuesInDateRangeSet = res as [];
+      });
+
+    this.minValuesDataJson = this.fetchService.fetchMinValuesInDateRange
+    (this.pickedStartDate.toLocaleDateString(CC_EXT.LOCALE_DATE_FORMAT),
+      this.pickedEndDate.toLocaleDateString(CC_EXT.LOCALE_DATE_FORMAT),
+      this.pickedDevice)
+      .subscribe(res => {
+        this.minValuesInDateRangeSet = res as [];
+        console.log(res);
+      });
+
+    this.maxValuesDataJson = this.fetchService.fetchMaxValuesInDateRange
+    (this.pickedStartDate.toLocaleDateString(CC_EXT.LOCALE_DATE_FORMAT),
+      this.pickedEndDate.toLocaleDateString(CC_EXT.LOCALE_DATE_FORMAT),
+      this.pickedDevice)
+      .subscribe(res => {
+        this.maxValuesInDateRangeSet = res as [];
+        console.log(res);
+      });
+
+    this.isLoaded = true;
+
+    setTimeout(() => {
+      if (this.allValuesInDateRangeSet.length > 0) {
+        this.isLoaded = false;
+        setTimeout(() => {
+          if (typeof (this.lineChartRef) !== 'undefined') {
+            this.lineChartRef.chartRefresh();
+          }
+          if (typeof (this.barChartRef) !== 'undefined') {
+            this.barChartRef.dataRefresh();
+          }
+
+        }, 1000);
+      }
+    }, 1000);
   }
 
   onDateChange() {
@@ -88,7 +146,9 @@ export class DatePickerComponent implements OnInit {
     this.fetchData();
   }
 
-  onIntervalChange() {
+  pickedDeviceEvent($event) {
+    this.pickedDevice = $event;
     this.fetchData();
   }
+
 }

@@ -1,5 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {HistoricalFetchService} from '../../../services/historical-fetch.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FetchService} from '../../../services/fetch.service';
+import {DisplayConstants as DC_EXT} from '../../../constants/display-constants';
+import {LineChartComponent} from '../date-picker/line-chart/line-chart.component';
+import {BarChartComponent} from '../date-picker/bar-chart/bar-chart.component';
+import {DeviceListComponent} from '../date-picker/device-list/device-list.component';
 
 
 @Component({
@@ -9,69 +13,81 @@ import {HistoricalFetchService} from '../../../services/historical-fetch.service
 })
 export class DataPaginateListComponent implements OnInit {
 
-  constructor(private historicalDataService: HistoricalFetchService) {
+  constructor(private fetchService: FetchService) {
   }
 
-  data;
+  private DC = DC_EXT;
+  private data;
+  private selectedSizePageValue: number;
 
-  // Model Fields
-  //
-  // private String measurementID;
-  // private String stationName;
-  // private Date measurementDate;
-  // private Float airTemperature;
-  // private Float wetBulbTemperature;
-  // private Float humidity;
-  // private Float rainIntensity;
-  // private Float intervalRain;
-  // private Float totalRain;
-  // private Float precipitationType;
-  // private Float windDirection;
-  // private Float windSpeed;
-  // private Float maximumWindSpeed;
-  // private Float barometricPressure;
-  // private Float solarRadiation;
-  // private Integer heading;
-  // private Float batteryLife;
-  // private String measurementTimestampLabel;
+  private isLoaded = true;
 
+  @ViewChild(LineChartComponent, {static: true}) lineChartRef;
+  @ViewChild(BarChartComponent, {static: true}) barChartRef;
+  @ViewChild(DeviceListComponent, {static: true}) deviceListRef;
 
   settings = {
-    isPagerDisplay: false,
+    editable: false,
+    hideHeader: false,
+    hideSubHeader: true,
+    actions: {
+      add: false,
+      edit: false,
+      delete: false
+    },
     columns: {
       stationName: {
-        title: 'Station'
+        title: 'Station Name'
       },
       measurementDate: {
-        title: 'Date'
+        title: 'Date and Time'
       },
       airTemperature: {
-        title: 'Air Temperature'
+        title: 'Air Temp. [C]'
       },
       humidity: {
-        title: 'Humidity'
+        title: 'Humidity [%]'
       },
       windSpeed: {
-        title: 'Wind Speed'
+        title: 'Wind [m/s]'
       },
       barometricPressure: {
-        title: 'Pressure'
+        title: 'Pressure [hPa]'
       },
       solarRadiation: {
-        title: 'Solar Radiation'
+        title: 'Solar [wats/m2]'
       },
       rainIntensity: {
-        title: 'Rain Intensity'
+        title: 'Rain [mm/h]'
       }
     }
   };
 
   fetchPageData() {
-    this.historicalDataService.fetchPageDataFromService(0, 5000).subscribe(res => this.data = res);
-    console.log(this.data);
+    this.isLoaded = true;
+    this.fetchService.fetchAllPagedValues(0, this.selectedSizePageValue).subscribe(res => {
+      this.data = res;
+      console.log(this.data);
+      this.isLoaded = false;
+    });
   }
 
   ngOnInit() {
+    this.selectedSizePageValue = 100;
+    this.fetchPageData();
   }
 
+  onIntervalChange() {
+    this.fetchPageData();
+  }
+
+  deleteAllData() {
+    this.fetchService.removeAllData().subscribe(
+      res => {
+        console.log(res);
+      }, error => {
+        console.log(error);
+      });
+    this.data = null;
+  }
 }

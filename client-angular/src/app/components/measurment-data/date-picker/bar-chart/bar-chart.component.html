@@ -1,0 +1,75 @@
+<br><br>
+<div class="columns is-centered">
+  <div class="column">
+    <p class="title is-5 has-text-centered">{{DC.HUMIDITY_DATA_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="HumiditySet"
+              [labels]="DC.BAR_CHART_LABELS"
+              [colors]="chartColors"
+              [options]="percentageOptions">
+      </canvas>
+    </div>
+    <p class="title is-5 has-text-centered">{{DC.AIR_TEMPERATURE_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="AirTemperatureSet"
+              [labels]="DC.BAR_CHART_LABELS"
+              [colors]="chartColors"
+              [options]="temperatureOptions">
+      </canvas>
+    </div>
+  </div>
+  <div class="column">
+    <p class="title is-5 has-text-centered">{{DC.PRESSURE_CHART_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="BarometricPressureSet"
+              [labels]="DC.BAR_CHART_LABELS"
+              [colors]="chartColors"
+              [options]="pressureOptions">
+      </canvas>
+    </div>
+    <p class="title is-5 has-text-centered">{{DC.RAIN_INTENSITY_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="RainIntensitySet"
+              [labels]="DC.BAR_CHART_LABELS"
+              [colors]="chartColors"
+              [options]="rainOptions">
+      </canvas>
+    </div>
+  </div>
+
+  <div class="column">
+    <p class="title is-5 has-text-centered">{{DC.SOLAR_RADIATION_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="SolarRadiationSet"
+              [labels]="DC.BAR_CHART_LABELS"
+              [colors]="chartColors"
+              [options]="solarRadiationOptions">
+      </canvas>
+    </div>
+    <p class="title is-5 has-text-centered">{{DC.WIND_SPEED_LABEL}} </p>
+    <div class="box">
+      <canvas mdbChart
+              [chartType]="CC.BAR_CHART_TYPE"
+              [datasets]="WindSpeed"
+              [labels]="DC.BAR_CHART_LABELS"
+              [colors]="chartColors"
+              [options]="windSpeedOptions">
+      </canvas>
+    </div>
+  </div>
+
+
+</div>
+
+<br><br>
+

@@ -1,23 +1,78 @@
-<div class="box chartBox">
-  <h1 class="title has-text-centered">{{DC.DATA_CHART_LABEL}}</h1>
-  <div style="display: block">
-    <canvas mdbChart
-            [chartType]="CC.LINE_CHART_TYPE"
-            [datasets]="temperatureDataSets"
-            [labels]="chartLabels"
-            [colors]="chartColors"
-            [options]="temperatureChartOption"
-            [legend]="true">
-    </canvas>
+<div class="columns is-centered">
+
+  <div class="column">
+
+
+    <div class="box chartBox">
+      <h1 class="title has-text-centered">{{DC.TEMPERATURE_CHART_LABEL}}</h1>
+      <div style="display: block">
+        <canvas mdbChart
+                [chartType]="CC.LINE_CHART_TYPE"
+                [datasets]="temperatureDataSet"
+                [labels]="chartLabels"
+                [colors]="chartColors"
+                [options]="temperatureChartOption"
+                [legend]="true">
+        </canvas>
+      </div>
+    </div>
+
+    <div class="box chartBox">
+      <h1 class="title has-text-centered">{{DC.BAROMETRIC_PRESSURE}}</h1>
+      <div style="display: block">
+        <canvas mdbChart
+                [chartType]="CC.LINE_CHART_TYPE"
+                [datasets]="pressureDataSet"
+                [labels]="chartLabels"
+                [colors]="chartColors"
+                [options]="pressureChartOption"
+                [legend]="true">
+        </canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="column">
+
+    <div class="box chartBox">
+      <h1 class="title has-text-centered">{{DC.HUMIDITY_DATA_LABEL}}</h1>
+      <div style="display: block">
+        <canvas mdbChart
+                [chartType]="CC.LINE_CHART_TYPE"
+                [datasets]="humidityDataSet"
+                [labels]="chartLabels"
+                [colors]="chartColors"
+                [options]="percentageChartOption"
+                [legend]="true">
+        </canvas>
+      </div>
+    </div>
+
+    <div class="box chartBox">
+      <h1 class="title has-text-centered">{{DC.SOLAR_RADIATION_LABEL}}</h1>
+      <div style="display: block">
+        <canvas mdbChart
+                [chartType]="CC.LINE_CHART_TYPE"
+                [datasets]="solarRadiationDataSet"
+                [labels]="chartLabels"
+                [colors]="chartColors"
+                [options]="solarRadiationChartOption"
+                [legend]="true">
+        </canvas>
+      </div>
+    </div>
+
   </div>
 </div>
 
+
 <div class="box chartBox">
-  <h1 class="title has-text-centered">{{DC.HUMIDITY_WATER_DATA_LABEL}}</h1>
+  <h1 class="title has-text-centered">{{DC.NORMALIZED_COMPARISION}}</h1>
   <div style="display: block">
     <canvas mdbChart
             [chartType]="CC.LINE_CHART_TYPE"
-            [datasets]="largeDataSet"
+            [datasets]="normalizedDataSet"
             [labels]="chartLabels"
             [colors]="chartColors"
             [options]="percentageChartOption"
